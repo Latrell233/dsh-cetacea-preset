@@ -1,0 +1,37 @@
+# 鲸鱼娘陪伴聊天预设（DSH-IM 私聊 / 群聊）
+#
+# 本文件由 customize.mjs 从 cordis.patch.yml.template + cetacea.config.json 生成，
+# 不要手改；改配置后运行：node customize.mjs
+#
+# 安装：plugin_manager install_bundle target = <本目录绝对路径>
+# 或在 DSH 插件页安装本目录；用完新开会话，或给 IM bot 绑定后发 /new。
+- insert:
+    - id: preset-__PRESET_ID__
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: __PRESET_ID__
+        name: '__PRESET_NAME__'
+        description: '__PRESET_DESC__'
+        order: __ORDER__
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              complete: true
+              includeRuntimeContext: false
+              prefix: |
+                __PERSONA_BLOCK__
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+            config:
+              timeZone: __TIMEZONE__
+          - id: compaction
+            name: cordis:group
+            group: true
+            isolate:
+              compaction: true
+            config:
+              - id: compaction-basic
+                name: '@deepseek-ai/dsh-compaction-basic'
+              - id: command-compact
+                name: '@deepseek-ai/dsh-command-compact'

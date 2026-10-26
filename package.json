@@ -1,0 +1,62 @@
+{
+  "name": "dsh-cetacea-preset",
+  "version": "1.0.0",
+  "description": "鲸鱼娘陪伴聊天 Agent 预设（DSH-IM 私聊/群聊）：短句、活泼、傲娇甜，fail-closed 只认主人；名字/称呼/甜度/长度可配置。",
+  "type": "module",
+  "license": "MIT",
+  "author": "Latrell233",
+  "homepage": "https://github.com/Latrell233/dsh-cetacea-preset",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Latrell233/dsh-cetacea-preset.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Latrell233/dsh-cetacea-preset/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "agent-preset",
+    "persona",
+    "im",
+    "companion",
+    "chat",
+    "whale",
+    "cetacea"
+  ],
+  "files": [
+    "cordis.patch.yml",
+    "cordis.patch.yml.template",
+    "cetacea.config.json",
+    "customize.mjs",
+    "check.mjs",
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "dsh-cetacea-customize": "./customize.mjs"
+  },
+  "scripts": {
+    "build": "node customize.mjs",
+    "check": "node customize.mjs --check && node check.mjs",
+    "test": "npm run check"
+  },
+  "devDependencies": {
+    "yaml": "^2.8.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "plugin": {
+      "displayName": "鲸鱼娘陪伴聊天预设",
+      "category": "identity"
+    }
+  }
+}
