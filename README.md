@@ -44,12 +44,15 @@ plugin_manager install_bundle target = <克隆目录的绝对路径>
 
 ### 方式 C：打好的 tgz
 
+从 [Releases](https://github.com/Latrell233/dsh-cetacea-preset/releases) 下载
+`dsh-cetacea-preset-1.0.0.tgz`，然后用 `plugin_manager install_bundle target = <tgz 绝对路径>` 安装。
+
+也可以自己打包：
+
 ```bash
 npm pack
 # 得到 dsh-cetacea-preset-1.0.0.tgz
 ```
-
-再用 `plugin_manager install_bundle target = <tgz 绝对路径>` 安装。
 
 > 本地 `link:` 安装时，改完配置执行 `node customize.mjs`，再把 bundle `set_bundle` 关/开一次即可生效；云端安装请重装。
 
